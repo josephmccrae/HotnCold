@@ -22,6 +22,7 @@ $(document).ready(function(){
     //Set new answer for new game
     function newGame(){
         setAnswer();
+        $('#guessButton, #userGuess').prop('disabled', false);
     };
     
     
@@ -101,8 +102,8 @@ $(document).ready(function(){
             $('#guessList').append('<li>' + answer + '</li>');
             $('#count').text(guessTotal);
             $('#feedback').text("Spot on!  You win!");
-            $('#guessButton, #userGuess').prop('disabled', true);
             alert("Congrats!  Click 'New Game' to play again");
+            $('#guessButton, #userGuess').prop('disabled', true);
             return true;
         }
     };
