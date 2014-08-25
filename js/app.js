@@ -18,6 +18,7 @@ $(document).ready(function(){
     var range;
     var guessTotal=0;
 
+    var userSum=0;
     
     //Set new answer for new game
     function newGame(){
@@ -64,11 +65,35 @@ $(document).ready(function(){
         //While loop for incorrect guesses
         var winGame=false;
         while(guess!=answer && Number(guess) ){
-            
+         
             //Show user list of guesses
-            guessTotal+=1;
+            guessTotal++;
             $('#guessList').append('<li>' + guess + '</li>');
             $('#count').text(guessTotal);
+            
+            
+            if(guessTotal<=2){
+                $('#earnings').text('500'+','+'000');
+            }else if(guessTotal==3){
+                $('#earnings').text('250'+','+'000');
+            }else if(guessTotal==4){
+                $('#earnings').text('100'+','+'000');
+            }else if(guessTotal==5){
+                $('#earnings').text('50'+','+'000');
+            }else if(guessTotal==6){
+                $('#earnings').text('25'+','+'000');
+            }else if(guessTotal==7){
+                $('#earnings').text('10'+','+'000');
+            }else if(guessTotal==8){
+                $('#earnings').text('5'+','+'000');
+            }else if(guessTotal==9){
+                $('#earnings').text('1'+','+'000');
+            }else{
+                $('#earnings').text('0');
+                alert("Game Over. Try Again!");
+                reset();
+            }
+            
             
             //user feedback
             if(range>=1 && range<=5){
@@ -104,6 +129,7 @@ $(document).ready(function(){
             $('#feedback').text("Spot on!  You win!");
             alert("Congrats!  Click 'New Game' to play again");
             $('#guessButton, #userGuess').prop('disabled', true);
+            reset();
             return true;
         }
     };
@@ -131,8 +157,10 @@ $(document).ready(function(){
     function reset() {
         $('#feedback').text('Make your Guess!');
         $('#userGuess').attr('placeholder', 'Enter Your Guess');
+        $('#earnings').text('1'+','+'000'+','+'000');
         $('#count').text('0');
         $('#guessList').empty();
+        guessTotal=0;
         newGame();
         } 
    
@@ -142,8 +170,3 @@ $(document).ready(function(){
     });
     
 });
-       
-
-
-
-

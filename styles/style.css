@@ -228,11 +228,26 @@ h2 {
 }
 
 
+#earnings {
+	color: #5aa35f;
+	font-weight: 700;
+	font-size: 1em;
+}
+
+
 #count {
 	color: #f39c12;
 	font-weight: 700;
 	font-size: 1em;
 }
+
+
+#maxcount {
+	color: #f39c12;
+	font-weight: 700;
+	font-size: 1em;
+}
+
 
 input {
 	width: 300px;
